@@ -4,13 +4,7 @@ This code uses the Raspberry Pi SPI interface to trigger the sensor and capture 
 
 Currently it uses the script "rep" to call the compiled binary of spidev_test.c to drive the SPI interface. The sampled pulse data is saved in a file inputcap. The countbits.c program parses the inputcap file and prints out the measured distance.
 
-## Design
-
-The overall digital I/O interface to the SR-04 sensor uses the Pi's SPI interface to drive the trigger pulse and measure the resulting ECHO pulse.  This is done because polling GPIO to measure the ECHO pulse time would likely cause variation based on CPU and thread/process scheduling load.  The SPI interface is run via DMA and provides a consistent measurement.
-
-The trigger pulse is driven with the MOSI pin.  The first few bytes in the "ttt" file control the pulse width (see below).
-
-The echo pin is connected to the MISO pin.  Note that some ultrasonic sensors seem to require a pullup for this signal to show up, and many require a voltage divider because they are 5V sensors and the Pi is 3.3V GPIO.  Connecting a 5V sensor directly to 3.3V GPIO will almost certainly damage the Pi hardware.
+## Usage
 
 ```
 ./spidev_test -D /dev/spidev0.0 -s 1000000 -i ttt -o inputcap

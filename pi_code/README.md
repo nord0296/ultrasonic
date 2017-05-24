@@ -17,15 +17,12 @@ The echo pin is connected to the MISO pin.  Note that some ultrasonic sensors se
 ```
 
 In the above command:  
-> Select the spi device:
 ```
--D dev/spidev0.0
+  Select the spi device:              -D dev/spidev0.0
+  Set the spi clock rate to 1 MHz:    -s 1000000
+  Input file to send out on  spi:     -i ttt
+  Captured MISO data outout file:     -o inputcap
 ```
-
-> Set the spi clock rate to 1 MHz:    -s 1000000  
-> Input file to send out on  spi:     -i ttt  
-> Captured MISO data outout file:     -o inputcap  
-
 
 ## Trigger Pulse and Maximum Distance Adjustment
 

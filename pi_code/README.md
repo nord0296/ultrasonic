@@ -12,9 +12,9 @@ The trigger pulse is driven with the MOSI pin.  The first few bytes in the "ttt"
 
 The echo pin is connected to the MISO pin.  Note that some ultrasonic sensors seem to require a pullup for this signal to show up, and many require a voltage divider because they are 5V sensors and the Pi is 3.3V GPIO.  Connecting a 5V sensor directly to 3.3V GPIO will almost certainly damage the Pi hardware.
 
-'''
+```
 ./spidev_test -D /dev/spidev0.0 -s 1000000 -i ttt -o inputcap
-'''
+```
 
 In the above command:
   Select the spi device:              -D dev/spidev0.0
@@ -33,9 +33,9 @@ The reset of the file has 0x00 bytes, the number of which will set the maximum t
 
 Example to create new "ttt" file to send 12 bit trigger and sample 32000 bits:
 
-'''
+```
 echo -ne "\xFF\xF0" > ttt; head -c 3998 /dev/zero >> ttt
-'''
+```
 
 ## SPI Frequency - Mapped to Pi Core Frequency
 

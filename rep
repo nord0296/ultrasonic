@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for n in {1..100}; do
+./a.out -D /dev/spidev0.0 -s 1000000 -i ttt -o inputcap
+./countbits
+sleep 1
+done

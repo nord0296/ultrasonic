@@ -29,4 +29,5 @@ int main (int argc, char *argv[])
 	}
 	printf("Distance = %6d us, %6.2f inches\n", count, (float)count / 148.0f);
 	
+	return 0;
 }
